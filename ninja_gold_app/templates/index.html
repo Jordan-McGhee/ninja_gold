@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Your Gold: {{request.session.gold}}</h1>
+
+    <div id="wrapper">
+        <div class="split">
+            <form action="/process_gold" method="POST">
+                {% csrf_token %}
+                <h2>Farm</h2>
+                <p>(earns 10-20 gold)</p>
+                <input type="hidden" name="location" value="farm">
+                <input type="submit" value="Find Gold" class="button">
+            </form>
+        </div>
+
+        <div class="split">
+            <form action="/process_gold" method="POST">
+                {% csrf_token %}
+                <h2>Cave</h2>
+                <p>(earns 5-10 gold)</p>
+                <input type="hidden" name="location" value="cave">
+                <input type="submit" value="Find Gold" class="button">
+            </form>
+        </div>
+
+        <div class="split">
+            <form action="/process_gold" method="POST">
+                {% csrf_token %}
+                <h2>House</h2>
+                <p>(earns 2-5 gold)</p>
+                <input type="hidden" name="location" value="house">
+                <input type="submit" value="Find Gold" class="button">
+            </form>
+        </div>
+
+        <div class="split">
+            <form action="/process_gold" method="POST">
+                {% csrf_token %}
+                <h2>Casino</h2>
+                <p>(earns/loses up to 50 gold)</p>
+                <input type="hidden" name="location" value="casino">
+                <input type="submit" value="Find Gold" class="button">
+            </form>
+        </div>
+    </div>
+
+    <h3>Activities:</h3>
+    <div id="activity_list">
+        {% for activity in request.session.activities reversed %}
+        <h4>{{activity}}</h4>
+        {% endfor %}
+    </div>
+
+    <form action="/reset" method="GET">
+        <input class="button" type="submit" value="RESET">
+    </form>
+
+</body>
+</html>

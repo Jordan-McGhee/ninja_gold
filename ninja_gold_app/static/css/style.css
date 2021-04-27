@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    border: 1px solid black;
+    padding: 10px 15px;
+}
+
+#wrapper {
+    width: 1200;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+.split {
+    min-width: 280px;
+    border: 1px solid black;
+    padding: 15px;
+    min-height: 150px;
+    text-align: center;
+}
+
+.button {
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 2px 3px 3px #3c3c3c;
+}
+
+#activity_list {
+    height: 150px;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 10px 0px 20px;
+    overflow: auto;
+}
+
+.loss {
+    color: red;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
